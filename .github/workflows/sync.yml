@@ -13,7 +13,6 @@ jobs:
   sync_latest_from_upstream:
     name: Sync latest commits from upstream repo
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.fork }}
 
     steps:
       # Step 1: run a standard checkout action
@@ -27,7 +26,7 @@ jobs:
         with:
           upstream_sync_repo: LunaTechLab/MoonTV
           upstream_sync_branch: main
-          target_sync_branch: main
+          target_sync_branch: upstream
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync check
